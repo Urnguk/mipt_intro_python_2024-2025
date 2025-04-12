@@ -83,45 +83,45 @@
 # print(a.cnt)
 
 
-class Node:
-    def __init__(self, value, next=None):
-        self.v = value
-        self.n = next
-
-
-class LinkedList:
-    def __init__(self):
-        self._head = None
-        self._tail = None
-        self._len = 0
-
-    def append(self, value):
-        self._len += 1
-        if self._head is None:
-            self._head = Node(value)
-            self._tail = self._head
-            return
-        self._tail.n = Node(value)
-        self._tail = self._tail.n
-
-    def __getitem__(self, item):
-        if item >= self._len:
-            raise IndexError
-        cur = self._head
-        for i in range(item):
-            cur = cur.n
-        return cur.v
-
-    def __len__(self):
-        return self._len
-
-    def __str__(self):
-        res = []
-        cur = self._head
-        for i in range(len(self)):
-            res.append(cur.v)
-            cur = cur.n
-        return str(res)
+# class Node:
+#     def __init__(self, value, next=None):
+#         self.v = value
+#         self.n = next
+#
+#
+# class LinkedList:
+#     def __init__(self):
+#         self._head = None
+#         self._tail = None
+#         self._len = 0
+#
+#     def append(self, value):
+#         self._len += 1
+#         if self._head is None:
+#             self._head = Node(value)
+#             self._tail = self._head
+#             return
+#         self._tail.n = Node(value)
+#         self._tail = self._tail.n
+#
+#     def __getitem__(self, item):
+#         if item >= self._len:
+#             raise IndexError
+#         cur = self._head
+#         for i in range(item):
+#             cur = cur.n
+#         return cur.v
+#
+#     def __len__(self):
+#         return self._len
+#
+#     def __str__(self):
+#         res = []
+#         cur = self._head
+#         for i in range(len(self)):
+#             res.append(cur.v)
+#             cur = cur.n
+#         return str(res)
 
 
 # A = LinkedList()
@@ -178,10 +178,17 @@ class LinkedList:
 
 
 import pickle
-x = {2: "abc", 7: "bf"}
-with open("data.bin", mode="wb") as f:
-    pickle.dump(x, f)
 
 
+# x = LinkedList()
+# x.append(3)
+# x.append(4)
+# with open("data.bin", mode="wb") as f:
+#     pickle.dump(x, f)
+
+with open("data.bin", mode="rb") as f:
+    y = pickle.load(f)
+
+print(y, type(y))
 
 
